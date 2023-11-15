@@ -1,5 +1,13 @@
 const express = require('express')
 const app = express()
+
+const server = require('http').createServer(app)
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*'
+  }
+})
+
 const path = require('path')
 const logger = require('morgan')
 
@@ -24,6 +32,14 @@ app.get('/*', function(req, res) {
 
 const port = process.env.PORT || 3001
 
-app.listen(port, function() {
+app.start = app.listen = function(){
+  return server.listen.apply(server, arguments)
+}
+
+app.start(port, function() {
+  io.on("connection", (socket) => {
+    console.log("hello")
+  })
+
   console.log(`Express app running on port ${port}`)
 })

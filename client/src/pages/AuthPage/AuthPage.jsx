@@ -2,7 +2,8 @@ import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Text, Box, Container, Tab, TabList, Tabs, TabPanels, TabPanel } from '@chakra-ui/react'
 
-export default function AuthPage({ setUser }) {return (
+export default function AuthPage({ setUser }) {
+  return (
     <Container 
       maxW='100vw' 
       centerContent
