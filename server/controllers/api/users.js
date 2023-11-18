@@ -3,9 +3,10 @@ const bcrypt = require('bcrypt')
 const User = require('../../models/user')
 
 module.exports = {
-    create,
-    login,
-    checkToken
+  index,
+  create,
+  login,
+  checkToken
 }
 
 function checkToken(req, res) {
@@ -34,6 +35,10 @@ async function create(req, res) {
   } catch (err) {
     res.status(400).json(err);
   }
+}
+
+async function index(req, res) {
+  
 }
 
 //Helper Functions
